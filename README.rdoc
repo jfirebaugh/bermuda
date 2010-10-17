@@ -1,0 +1,21 @@
+= bermuda
+
+Continuing in the naming tradition established by Aruba, Bermuda provides
+cucumber steps for driving out web applications which use jQuery UI widgets.
+
+== Usage
+
+  gem install bermuda
+
+Then, just require the library in one of your ruby files under
+<tt>features/support</tt>
+
+  require 'bermuda/cucumber'
+
+You now have a bunch of step definitions that you can use in your features.
+Look at aruba/cucumber.rb to see all the step definitions. Look at
+features/*.feature for examples (which are also testing Bermuda itself).
+
+== Copyright
+
+Copyright (c) 2010 John Firebaugh. See LICENSE for details.
