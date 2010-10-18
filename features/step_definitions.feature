@@ -30,6 +30,13 @@ Feature: Step definitions
     Then the progress bar should be at 37%
     Then the progress bar should be at 37 percent
 
+  Scenario: Slider steps
+    When I visit the slider page
+    Then the slider should be at 0
+
+    When I set the slider to 37
+    Then the slider should be at 37
+
   Scenario: Tabs steps
     When I visit the tabs page
     Then I should see the following tabs:
