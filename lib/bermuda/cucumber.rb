@@ -59,20 +59,20 @@ When /^I set the slider to (\d+)$/ do |value|
   pending
 end
 
-# Tab
+# Tabs
 
 Then /^I should see the following tabs:$/ do |titles|
-  pending
+  titles.diff!(all(:xpath, Bermuda::XPath.tab_header).map {|node| [node.text]})
 end
 
 Then /^the "([^"]+)" tab should be active$/ do |title|
-  pending
+  page.should have_xpath(Bermuda::XPath.tab_header(title, :active => true))
 end
 
 Then /^the "([^"]+)" tab should not be active$/ do |title|
-  pending
+  page.should have_xpath(Bermuda::XPath.tab_header(title, :active => false))
 end
 
 When /^I activate the "([^"]+)" tab$/ do |title|
-  pending
+  find(:xpath, Bermuda::XPath.tab_header(title).child(:a)).click
 end

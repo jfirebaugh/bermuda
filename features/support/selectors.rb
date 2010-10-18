@@ -10,6 +10,8 @@ module HtmlSelectorsHelpers
 
     when /the "([^"]+)" accordion section/
       [:xpath, Bermuda::XPath.accordion_content($1)]
+    when /the "([^"]+)" tab/
+      [:xpath, Bermuda::XPath.tab_content($1)]
 
     else
       raise "Can't find mapping from \"#{locator}\" to a selector.\n" +

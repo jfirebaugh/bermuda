@@ -36,5 +36,22 @@ module Bermuda
     def accordion_content(title = nil, options = {})
       accordion_header(title, options).next_sibling
     end
+
+    def tab_header(title = nil, options = {})
+      xpath = descendant[attr(:class).includes('ui-tabs-nav')].child
+
+      if options.key?(:active)
+        state = attr(:class).includes('ui-state-active')
+        state = ~state unless options[:active]
+        xpath = xpath[state]
+      end
+
+      xpath = xpath[descendant(:a).text.is title] if title
+      xpath
+    end
+
+    def tab_content(title = nil, options = {})
+      descendant[Expression::Literal.new("concat('#', @id)") == anywhere(tab_header(title, options)).descendant(:a).attr(:href)]
+    end
   end
 end
