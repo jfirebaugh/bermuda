@@ -16,7 +16,7 @@ You now have a bunch of step definitions that you can use in your features.
 Look at aruba/cucumber.rb to see all the step definitions. Look at
 features/*.feature for examples (which are also testing Bermuda itself).
 
-== Selector Helpers ==
+== Selector Helpers
 
 Bermuda provides some selector helpers that work in concert with Bodaniel Jeanes's
 selector helpers extension to cucumber-rails:
