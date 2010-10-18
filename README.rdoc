@@ -16,6 +16,30 @@ You now have a bunch of step definitions that you can use in your features.
 Look at aruba/cucumber.rb to see all the step definitions. Look at
 features/*.feature for examples (which are also testing Bermuda itself).
 
+== Selector Helpers ==
+
+Bermuda provides some selector helpers that work in concert with Bodaniel Jeanes's
+selector helpers extension to cucumber-rails:
+
+    http://github.com/aslakhellesoy/cucumber-rails/pull/63
+
+First, make sure your web_steps.rb is set up to support selector helpers. Follow
+the steps outlined in Bo's blog post:
+
+    http://bjeanes.com/2010/09/19/selector-free-cucumber-scenarios
+
+Then add the following lines to your selectors.rb:
+
+    when /the "([^"]+)" accordion section/
+      [:xpath, Bermuda::XPath.accordion_content($1)]
+    when /the "([^"]+)" dialog/
+      [:xpath, Bermuda::XPath.dialog_content($1)]
+    when /the "([^"]+)" tab/
+      [:xpath, Bermuda::XPath.tab_content($1)]
+
+Now you can write steps such `Then I should see "foo" within the "bar" accordion section`
+and `When I click "Save" within the "Save Changes" dialog`.
+
 == Copyright
 
 Copyright (c) 2010 John Firebaugh. See LICENSE for details.
