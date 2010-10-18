@@ -1,19 +1,22 @@
+require 'bermuda/xpath'
+
 # Accordion
 
 Then /^I should see the following accordion sections:$/ do |titles|
-  pending
+  wait_until { page.has_xpath?(Bermuda::XPath.accordion_header) }
+  titles.diff!(all(:xpath, Bermuda::XPath.accordion_header).map {|node| [node.text]})
 end
 
 Then /^the "([^"]+)" accordion section should be active$/ do |title|
-  pending
+  page.should have_xpath(Bermuda::XPath.accordion_header(title, :active => true))
 end
 
 Then /^the "([^"]+)" accordion section should not be active$/ do |title|
-  pending
+  page.should have_xpath(Bermuda::XPath.accordion_header(title, :active => false))
 end
 
 When /^I activate the "([^"]+)" accordion section$/ do |title|
-  pending
+  find(:xpath, Bermuda::XPath.accordion_header(title).child(:a)).click
 end
 
 # Autocomplete
