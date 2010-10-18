@@ -11,6 +11,6 @@ require 'rack/directory'
 Capybara.configure do |config|
   config.default_driver = :selenium
   config.app = Rack::Builder.app do
-    run Rack::Directory.new "public"
+    run Rack::Directory.new "features/support/public"
   end
 end
