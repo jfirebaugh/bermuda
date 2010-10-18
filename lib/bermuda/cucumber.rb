@@ -32,15 +32,15 @@ end
 # Dialog
 
 Then /^I should see the "([^"]+)" dialog$/ do |title|
-  pending
+  page.should have_xpath(Bermuda::XPath.dialog(title), :visible => true)
 end
 
 Then /^I should not see the "([^"]+)" dialog$/ do |title|
-  pending
+  page.should_not have_xpath(Bermuda::XPath.dialog(title), :visible => true)
 end
 
 When /^I close the "([^"]+)" dialog$/ do |title|
-  pending
+  find(:xpath, Bermuda::XPath.dialog(title), :visible => true).click_link('close')
 end
 
 # Progress bar

@@ -37,6 +37,16 @@ module Bermuda
       accordion_header(title, options).next_sibling
     end
 
+    def dialog(title = nil)
+      xpath = descendant[attr(:class).includes('ui-dialog')]
+      xpath = xpath[descendant[attr(:class).includes('ui-dialog-title')].text.is title] if title
+      xpath
+    end
+
+    def dialog_content(title = nil)
+      dialog(title).descendant[attr(:class).includes('ui-dialog-content')]
+    end
+
     def tab_header(title = nil, options = {})
       xpath = descendant[attr(:class).includes('ui-tabs-nav')].child
 

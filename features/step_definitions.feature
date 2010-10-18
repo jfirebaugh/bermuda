@@ -17,6 +17,14 @@ Feature: Step definitions
     And the "Section 2" accordion section should be active
     And I should see "Sed non urna" within the "Section 2" accordion section
 
+  Scenario: Dialog steps
+    When I visit the dialog page
+    Then I should see the "Basic dialog" dialog
+    And I should see "This is the default dialog" within the "Basic dialog" dialog
+
+    When I close the "Basic dialog" dialog
+    Then I should not see the "Basic dialog" dialog
+
   Scenario: Tabs steps
     When I visit the tabs page
     Then I should see the following tabs:
