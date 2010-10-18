@@ -25,6 +25,11 @@ Feature: Step definitions
     When I close the "Basic dialog" dialog
     Then I should not see the "Basic dialog" dialog
 
+  Scenario: Progressbar steps
+    When I visit the progressbar page
+    Then the progress bar should be at 37%
+    Then the progress bar should be at 37 percent
+
   Scenario: Tabs steps
     When I visit the tabs page
     Then I should see the following tabs:

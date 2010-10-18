@@ -46,7 +46,7 @@ end
 # Progress bar
 
 Then /^the progress bar should be at (\d+)(?: percent|%)$/ do |value|
-  pending
+  page.should have_xpath(Bermuda::XPath.progressbar(:value => value))
 end
 
 # Slider

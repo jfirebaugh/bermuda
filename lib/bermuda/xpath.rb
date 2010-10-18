@@ -47,6 +47,12 @@ module Bermuda
       dialog(title).descendant[attr(:class).includes('ui-dialog-content')]
     end
 
+    def progressbar(options = {})
+      xpath = descendant[attr(:class).includes('ui-progressbar')]
+      xpath = xpath[attr(:'aria-valuenow') == options[:value]] if options[:value]
+      xpath
+    end
+
     def tab_header(title = nil, options = {})
       xpath = descendant[attr(:class).includes('ui-tabs-nav')].child
 
