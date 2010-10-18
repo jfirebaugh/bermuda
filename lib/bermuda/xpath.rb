@@ -33,6 +33,13 @@ module Bermuda
       xpath
     end
 
+    def autocompletion(text = nil)
+      xpath = descendant[attr(:class).includes('ui-autocomplete')]
+      xpath = xpath.descendant[attr(:class).includes('ui-menu-item')]
+      xpath = xpath[descendant(:a).text.is text] if text
+      xpath
+    end
+
     def accordion_content(title = nil, options = {})
       accordion_header(title, options).next_sibling
     end

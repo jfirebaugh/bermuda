@@ -24,3 +24,11 @@ end
 Then /^I should see "([^"]+)"$/ do |text|
   page.should have_content(text)
 end
+
+When /^(?:|I )fill in "([^"]*)" with "([^"]*)"$/ do |field, value|
+  fill_in(field, :with => value)
+end
+
+Then /^the "([^"]*)" field should contain "([^"]*)"$/ do |field, value|
+  find_field(field).value.should == value
+end

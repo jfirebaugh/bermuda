@@ -17,6 +17,23 @@ Feature: Step definitions
     And the "Section 2" accordion section should be active
     And I should see "Sed non urna" within the "Section 2" accordion section
 
+  Scenario: Autocomplete steps
+    When I visit the autocomplete page
+    And I fill in "Tags" with "R"
+    Then I should see the following completions:
+      | ActionScript |
+      | AppleScript  |
+      | Clojure      |
+      | Erlang       |
+      | Fortran      |
+      | Groovy       |
+      | JavaScript   |
+      | Perl         |
+      | Ruby         |
+
+    When I select the "Ruby" completion
+    Then the "Tags" field should contain "Ruby"
+
   Scenario: Dialog steps
     When I visit the dialog page
     Then I should see the "Basic dialog" dialog

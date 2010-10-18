@@ -22,11 +22,12 @@ end
 # Autocomplete
 
 Then /^I should see the following completions:$/ do |choices|
-  pending
+  wait_until { page.has_xpath?(Bermuda::XPath.autocompletion) }
+  choices.diff!(all(:xpath, Bermuda::XPath.autocompletion).map {|node| [node.text]})
 end
 
-When /^I select the "([^"]+)" completion$/ do |title|
-  pending
+When /^I select the "([^"]+)" completion$/ do |text|
+  find(:xpath, Bermuda::XPath.autocompletion(text).child(:a)).click
 end
 
 # Dialog
