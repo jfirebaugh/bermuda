@@ -42,6 +42,10 @@ Feature: Step definitions
     When I close the "Basic dialog" dialog
     Then I should not see the "Basic dialog" dialog
 
+    When I visit the dialog page
+    And I press "Ok" within the "Basic dialog" dialog
+    Then I should not see the "Basic dialog" dialog
+
   Scenario: Progressbar steps
     When I visit the progressbar page
     Then the progress bar should be at 37%

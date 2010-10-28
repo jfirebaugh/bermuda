@@ -11,7 +11,7 @@ module HtmlSelectorsHelpers
     when /the "([^"]+)" accordion section/
       [:xpath, Bermuda::XPath.accordion_content($1)]
     when /the "([^"]+)" dialog/
-      [:xpath, Bermuda::XPath.dialog_content($1)]
+      [:xpath, Bermuda::XPath.dialog($1)]
     when /the "([^"]+)" tab/
       [:xpath, Bermuda::XPath.tab_content($1)]
 

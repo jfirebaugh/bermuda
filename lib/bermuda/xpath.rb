@@ -50,10 +50,6 @@ module Bermuda
       xpath
     end
 
-    def dialog_content(title = nil)
-      dialog(title).descendant[attr(:class).includes('ui-dialog-content')]
-    end
-
     def progressbar(options = {})
       xpath = descendant[attr(:class).includes('ui-progressbar')]
       xpath = xpath[attr(:'aria-valuenow') == options[:value]] if options[:value]

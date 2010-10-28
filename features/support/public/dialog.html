@@ -6,7 +6,14 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/themes/base/jquery-ui.css">
     <script>
-	$(function() { $( "#dialog" ).dialog(); });
+	$(function() {
+        $( "#dialog" ).dialog({
+            buttons: [{
+                text: "Ok",
+                click: function() { $(this).dialog("close"); }
+            }]
+        });
+    });
 	</script>
 </head>
 <body>
