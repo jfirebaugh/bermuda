@@ -2,3 +2,6 @@ pkg/*
 *.gem
 .bundle
 Gemfile.lock
+features/support/public/jquery.js
+features/support/public/jquery-ui.js
+features/support/public/jquery-ui.css
