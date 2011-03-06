@@ -1,3 +1,4 @@
+@firebug
 Feature: Step definitions
   As a developer
   I want step definitions that allow me to interact with jQuery UI widgets

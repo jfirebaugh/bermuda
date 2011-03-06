@@ -2,6 +2,7 @@ require 'bundler'
 Bundler.require
 
 require 'capybara/cucumber'
+require 'capybara/firebug'
 require 'bermuda/cucumber'
 
 require 'rack/builder'
